@@ -127,8 +127,8 @@ select{padding-right:25px;appearance:none;background-image:url("data:image/svg+x
 .summary-focus{padding:20px 18px;background:var(--stage-blue);border-radius:10px}
 .summary-focus h2{font-size:13px;font-weight:500;line-height:1.4;color:#fff;margin:0 0 13px}
 .live-price{display:block;color:#fff;font-size:37px;line-height:1.15;letter-spacing:-.04em;font-weight:500;font-variant-numeric:tabular-nums}
-.summary-project{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 12px;padding:18px 8px 7px;color:#10283b}
-.summary-project span{font-size:12px}.summary-project strong{font-size:19px;line-height:1.3;letter-spacing:-.025em;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.summary-project{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:6px 10px;padding:18px 8px 7px;color:#10283b}
+.summary-project span{min-width:0;font-size:12px;line-height:1.35}.summary-project strong{font-size:19px;line-height:1.3;letter-spacing:-.025em;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 .summary-amount>.btn{width:100%;margin-top:14px}
 .estimate-note{font-size:13px;line-height:1.65;color:var(--muted);margin:0 0 24px;max-width:76ch}
 .calc-fixed{display:flex;align-items:center;min-height:37px;font-size:13px;font-weight:500;color:var(--blue-deep);font-variant-numeric:tabular-nums}
