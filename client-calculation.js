@@ -105,7 +105,7 @@ globalThis.AQUEDUTO_BASE_CALCULATION = {
       "group": "Система и производство",
       "id": "master-article",
       "multiplierField": "masterSku",
-      "name": "Мастер-шаблон под категорию",
+      "name": "Мастер-шаблон под категорию + 1 SKU",
       "price": 1800,
       "qty": 13,
       "result": "Утвержденный шаблонный набор слайдов под конкретную категорию + 1 уже сразу оформленный артикул",
