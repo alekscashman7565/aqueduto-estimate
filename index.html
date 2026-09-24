@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru" class="client-view" data-view="client">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#7195b5">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Aqueduto · расчёт для клиента</title>
+  <link rel="preload" href="assets/fonts/manrope-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><a class="wordmark" href="#" aria-label="Aqueduto — начало расчёта">aqueduto</a><span class="topbar-context">Расчёт производства</span></div>
+    </header>
+    <main>
+      <div class="page-heading">
+        <div><h1>Производство контента</h1></div>
+        <span class="autosave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Ввод сохраняется автоматически</span>
+      </div>
+      <div class="workspace">
+        <div class="proposal">
+          <nav class="section-nav" aria-label="Этапы проекта"><a class="active" href="#group-start"><span class="nav-stage-number">1.</span> Подготовка и старт проекта</a><a href="#group-testing"><span class="nav-stage-number">2.</span> Тестирование</a><a href="#group-system"><span class="nav-stage-number">3.</span> Система и производство</a><a href="#group-production"><span class="nav-stage-number">4.</span> Тиражирование</a></nav>
+          <div id="workRows"></div>
+          <section class="proposal-footer" aria-label="Условия работы и оплаты">
+            <p class="estimate-note" id="estimateDisclaimer">Финальная стоимость зависит от качества исходных материалов и фиксируется только после изучения материалов клиента.</p>
+            <section class="payment-terms" id="paymentTerms" aria-labelledby="paymentTermsTitle">
+              <h3 id="paymentTermsTitle">Условия работы и оплаты</h3>
+              <div class="payment-terms-grid">
+                <div><h4>Договор и счёт</h4><p>Работаем по договору. Оплата по счёту от ИП на НПД (налог на профессиональный доход).</p></div>
+                <div><h4>Предоплата 50%</h4><p>Возможна поэтапная оплата. График и разбивку платежей согласуем индивидуально в зависимости от объёма проекта.</p></div>
+              </div>
+            </section>
+          </section>
+        </div>
+        <aside class="sidebar" aria-label="Стоимость и объём проекта">
+          <section class="live-summary">
+            <div class="summary-amount"><div class="summary-focus"><h2>В среднем за 1 SKU</h2><strong class="live-price" id="liveAverage">—</strong></div><div class="summary-project"><span>Стоимость проекта</span><strong id="liveTotal">—</strong></div></div>
+            <div class="summary-body"><div class="summary-breakdown" id="summaryBreakdown"></div><p class="summary-status" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span id="liveStatus"></span></p></div>
+          </section>
+          <section class="volume-panel" aria-label="Объём заказа"><div class="volume-title"><h2>Объём заказа</h2><span class="status" id="tableStatus">Не хватает данных</span></div><div class="volume-field"><input id="totalSku" type="number" min="0" step="1" inputmode="numeric"><label for="totalSku">всего SKU</label></div><span class="volume-balance" id="volumeBalance"></span><p class="volume-note">Контрольный объём должен совпасть с суммой SKU в строках производства.</p></section>
+          
+        </aside>
+      </div>
+    </main>
+    <footer class="page-footer"><span>Aqueduto · Расчёт производства контента</span><span>Можно изменить количество и состав работ</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="client-calculation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
