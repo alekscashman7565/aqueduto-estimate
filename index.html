@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#7195b5">
   <title>Aqueduto · расчёт для клиента</title>
   <link rel="preload" href="assets/fonts/manrope-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20260924-12">
+  <link rel="stylesheet" href="styles.css?v=20260924-15">
 </head>
 <body>
   <div class="shell">
@@ -16,8 +16,7 @@
     </header>
     <main>
       <div class="page-heading">
-        <div><h1>Производство контента</h1></div>
-        <span class="autosave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Ввод сохраняется автоматически</span>
+        <div><h1>Система производства контента под 600 SKU</h1></div>
       </div>
       <div class="workspace">
         <div class="workspace-main">
@@ -28,9 +27,9 @@
           <aside class="sidebar" aria-label="Стоимость и объём проекта">
             <section class="live-summary">
               <div class="summary-amount"><div class="summary-focus"><h2>В среднем за 1 SKU</h2><strong class="live-price" id="liveAverage">—</strong></div><div class="summary-project"><span>Стоимость проекта</span><strong id="liveTotal">—</strong></div></div>
-              <div class="summary-body"><div class="summary-breakdown" id="summaryBreakdown"></div><p class="summary-status" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span id="liveStatus"></span></p></div>
+              <div class="summary-body"><div class="summary-breakdown" id="summaryBreakdown"></div></div>
             </section>
-            <section class="volume-panel" aria-label="Объём заказа"><div class="volume-title"><h2>Объём заказа</h2><span class="status" id="tableStatus">Не хватает данных</span></div><div class="volume-field"><input id="totalSku" type="number" min="0" step="1" inputmode="numeric"><label for="totalSku">всего SKU</label></div><span class="volume-balance" id="volumeBalance"></span><p class="volume-note">Контрольный объём должен совпасть с суммой SKU в строках производства.</p></section>
+            <section class="volume-panel" aria-label="Объём заказа"><div class="volume-title"><h2>Объём заказа</h2></div><div class="volume-field"><input id="totalSku" type="number" min="0" step="1" inputmode="numeric"><label for="totalSku">всего SKU</label></div><span class="volume-balance" id="volumeBalance"></span><p class="volume-note">Контрольный объём должен совпасть с суммой SKU в строках производства.</p></section>
           </aside>
         </div>
         <div class="owner-closing">
@@ -54,7 +53,7 @@
     <footer class="page-footer"><span>Aqueduto · Расчёт производства контента</span><span>Можно изменить количество и состав работ</span></footer>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="client-calculation.js?v=20260924-12"></script>
-  <script src="app.js?v=20260924-12"></script>
+  <script src="client-calculation.js?v=20260924-15"></script>
+  <script src="app.js?v=20260924-15"></script>
 </body>
 </html>
