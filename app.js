@@ -1,7 +1,7 @@
 (()=>{
       'use strict';
       const clientView=document.documentElement.dataset.view==='client';
-      const STORAGE_KEY=clientView?'aqueduto-client-calculator-v3':'aqueduto-production-calculator-v8',LEGACY_KEY=clientView?'aqueduto-client-legacy-v3':'aqueduto-production-calculator-v7';
+      const STORAGE_KEY=clientView?'aqueduto-client-calculator-v4':'aqueduto-production-calculator-v8',LEGACY_KEY=clientView?'aqueduto-client-legacy-v4':'aqueduto-production-calculator-v7';
       const $=selector=>document.querySelector(selector),clone=value=>JSON.parse(JSON.stringify(value));
       const esc=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
       const rub=new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:0}),num=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2});
@@ -84,7 +84,7 @@
           const cards=state.rows.filter(row=>row.group===group).map(row=>{
             const result=rowResult(row);
             const enabled=`<label class="switch"><input type="checkbox" data-row-id="${row.id}" data-row-field="enabled" ${row.enabled?'checked':''} aria-label="Включено в смету: ${esc(row.name)}"><span class="switch-track" aria-hidden="true"></span><span class="switch-label">Включено в смету</span></label>`;
-            const firstStage=clientView?'':`<label class="switch first-stage-switch"><input type="checkbox" data-row-id="${row.id}" data-row-field="firstStage" ${row.firstStage?'checked':''} aria-label="В первый этап: ${esc(row.name)}"><span class="switch-track" aria-hidden="true"></span><span class="switch-label">В первый этап</span></label>`;
+            const firstStage=`<label class="switch first-stage-switch"><input type="checkbox" data-row-id="${row.id}" data-row-field="firstStage" ${row.firstStage?'checked':''} aria-label="В первый этап: ${esc(row.name)}"><span class="switch-track" aria-hidden="true"></span><span class="switch-label">В первый этап</span></label>`;
             const name=row.custom&&!clientView?`<input type="text" data-row-id="${row.id}" data-row-field="name" value="${esc(row.name)}" aria-label="Название работы">`:esc(row.name);
             const unit=clientView?`<span class="calc-fixed">${esc(unitLabel(row.unit))}</span>`:`<select class="unit-select" data-row-id="${row.id}" data-row-field="unit" aria-label="Единица измерения: ${esc(row.name)}">${unitOptions.map(option=>`<option value="${option}" ${row.unit===option?'selected':''}>${unitLabel(option)}</option>`).join('')}</select>`;
             const sku=row.multiplierField?`<input type="number" min="0" step="1" inputmode="numeric" data-setting-field="${row.multiplierField}" value="${state.settings[row.multiplierField]??''}" placeholder="SKU" aria-label="Количество SKU: ${esc(row.name)}">`:'<span class="calc-dash">—</span>';
@@ -127,7 +127,7 @@
       }
       function renderAll(){renderSettings();renderRows();renderTotals();save()}
       function updateSetting(field,input){const value=parseInput(input,true);state.settings[field]=value;document.querySelectorAll(`[data-setting-field="${field}"]`).forEach(element=>{if(element!==input)element.value=value??''});input.setAttribute('aria-invalid',String(input.value!==''&&value===null));renderBalance();state.rows.filter(row=>row.multiplierField===field).forEach(row=>refreshRow(row.id));renderTotals();save()}
-      function updateRow(id,field,input){if(clientView&&!['qty','enabled'].includes(field))return;const row=state.rows.find(item=>item.id===id);if(!row)return;if(field==='enabled'){row.enabled=input.checked;requestAnimationFrame(fitTextFields)}else if(field==='firstStage')row.firstStage=input.checked;else if(['qty','price'].includes(field)){const value=parseInput(input,field==='qty');row[field]=value;input.setAttribute('aria-invalid',String(input.value!==''&&value===null))}else row[field]=field==='unit'?normalizeUnit(input.value):input.value;if(field==='unit'){renderRows();renderTotals();save();return}refreshRow(id);renderTotals();save()}
+      function updateRow(id,field,input){if(clientView&&!['qty','enabled','firstStage'].includes(field))return;const row=state.rows.find(item=>item.id===id);if(!row)return;if(field==='enabled'){row.enabled=input.checked;requestAnimationFrame(fitTextFields)}else if(field==='firstStage')row.firstStage=input.checked;else if(['qty','price'].includes(field)){const value=parseInput(input,field==='qty');row[field]=value;input.setAttribute('aria-invalid',String(input.value!==''&&value===null))}else row[field]=field==='unit'?normalizeUnit(input.value):input.value;if(field==='unit'){renderRows();renderTotals();save();return}refreshRow(id);renderTotals();save()}
       function showToast(message){const toast=$('#toast');toast.textContent=message;toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove('show'),2200)}
       function addRow(){const id=`custom-${Date.now()}`,index=state.rows.length;state.rows.splice(index,0,{id,group:'Дополнительные работы',name:'Новая работа',unit:'слайд',description:'Дополнительная работа вне базового процесса.',result:'',artifacts:[],qty:1,enabled:true,firstStage:false,price:null,custom:true});renderAll();requestAnimationFrame(()=>document.querySelector(`[data-row-id="${id}"][data-row-field="name"]`)?.focus())}
 

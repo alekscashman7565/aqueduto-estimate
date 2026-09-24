@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#7195b5">
   <title>Aqueduto · расчёт для клиента</title>
   <link rel="preload" href="assets/fonts/manrope-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20260924-4">
+  <link rel="stylesheet" href="styles.css?v=20260924-5">
 </head>
 <body>
   <div class="shell">
@@ -24,16 +24,6 @@
           <div class="proposal">
             <nav class="section-nav" aria-label="Этапы проекта"><a class="active" href="#group-start"><span class="nav-stage-number">1.</span> Подготовка и старт проекта</a><a href="#group-testing"><span class="nav-stage-number">2.</span> Тестирование</a><a href="#group-system"><span class="nav-stage-number">3.</span> Система и производство</a><a href="#group-production"><span class="nav-stage-number">4.</span> Тиражирование</a></nav>
             <div id="workRows"></div>
-            <section class="proposal-footer" aria-label="Условия работы и оплаты">
-              <p class="estimate-note" id="estimateDisclaimer">Финальная стоимость зависит от качества исходных материалов и фиксируется только после изучения материалов клиента.</p>
-              <section class="payment-terms" id="paymentTerms" aria-labelledby="paymentTermsTitle">
-                <h3 id="paymentTermsTitle">Условия работы и оплаты</h3>
-                <div class="payment-terms-grid">
-                  <div><h4>Договор и счёт</h4><p>Работаем по договору. Оплата по счёту от ИП на НПД (налог на профессиональный доход).</p></div>
-                  <div><h4>Предоплата 50%</h4><p>Возможна поэтапная оплата. График и разбивку платежей согласуем индивидуально в зависимости от объёма проекта.</p></div>
-                </div>
-              </section>
-            </section>
           </div>
           <aside class="sidebar" aria-label="Стоимость и объём проекта">
             <section class="live-summary">
@@ -43,12 +33,28 @@
             <section class="volume-panel" aria-label="Объём заказа"><div class="volume-title"><h2>Объём заказа</h2><span class="status" id="tableStatus">Не хватает данных</span></div><div class="volume-field"><input id="totalSku" type="number" min="0" step="1" inputmode="numeric"><label for="totalSku">всего SKU</label></div><span class="volume-balance" id="volumeBalance"></span><p class="volume-note">Контрольный объём должен совпасть с суммой SKU в строках производства.</p></section>
           </aside>
         </div>
+        <div class="owner-closing">
+          <section class="starting-point" aria-labelledby="startingPointTitle">
+            <div class="starting-point-copy"><h2 id="startingPointTitle">С чего начнём</h2><p>Отметьте нужные работы переключателем «В первый этап» — список и сумма обновятся автоматически.</p><div class="starting-point-list" id="firstStageRows" aria-live="polite"></div></div>
+            <div class="starting-point-amount"><span>Стоимость первого этапа</span><strong id="firstStageTotal">—</strong><small id="firstStageStatus" hidden></small></div>
+          </section>
+          <section class="proposal-footer" aria-label="Условия работы и оплаты">
+            <p class="estimate-note" id="estimateDisclaimer">Финальная стоимость зависит от качества исходных материалов и фиксируется только после изучения материалов клиента.</p>
+            <section class="payment-terms" id="paymentTerms" aria-labelledby="paymentTermsTitle">
+              <h3 id="paymentTermsTitle">Условия работы и оплаты</h3>
+              <div class="payment-terms-grid">
+                <div><h4>Договор и счёт</h4><p>Работаем по договору. Оплата по счёту от ИП на НПД (налог на профессиональный доход).</p></div>
+                <div><h4>Предоплата 50%</h4><p>Возможна поэтапная оплата. График и разбивку платежей согласуем индивидуально в зависимости от объёма проекта.</p></div>
+              </div>
+            </section>
+          </section>
+        </div>
       </div>
     </main>
     <footer class="page-footer"><span>Aqueduto · Расчёт производства контента</span><span>Можно изменить количество и состав работ</span></footer>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="client-calculation.js?v=20260924-4"></script>
-  <script src="app.js?v=20260924-4"></script>
+  <script src="client-calculation.js?v=20260924-5"></script>
+  <script src="app.js?v=20260924-5"></script>
 </body>
 </html>
